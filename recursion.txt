@@ -1,0 +1,105 @@
+#include <iostream>
+
+using namespace std;
+
+void test(int n)
+{
+  if (n > 0)
+  {
+    cout << n << " ";
+    test(n - 1);
+    cout << n << " ";
+  }
+}
+
+int main()
+{
+  test(5);
+  return 0;
+} 
+
+
+/// * table funct in recursion
+
+#include <iostream>
+using namespace std;
+
+void table(int N, int i){
+
+    if (i > 10)
+        return;
+    cout << N << " * " << i
+         << " = " << N * i
+         << endl;
+         
+    return table(N, i + 1);
+}
+ 
+int main()
+{
+    
+    int N = 5;
+    table(N, 1);
+    return 0;
+}
+
+
+
+////Factorial functon in recursion 
+
+#include<iostream>
+using namespace std;
+
+int factorial(int n);
+
+int main()
+{
+    int n;
+
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    cout << "Factorial of " << n << " = " << factorial(n);
+
+    return 0;
+}
+
+int factorial(int n)
+{
+    if(n > 1)
+        return n * factorial(n - 1);
+    else
+        return 1;
+}
+
+
+
+/// PRACTICE QUESTION
+
+
+#include <iostream>
+
+using namespace std;
+
+void myfunc(int * p, int * start,int * stop){
+    cout<<*p<<endl;
+    if (p == stop)
+        return;
+    }
+    myfunc(p+1,start,stop)
+    
+    if (p == start-1){
+        return;
+    }
+    myfunc(p-1,start,stop)
+    
+    
+    
+}
+int main (){
+    
+    int aarr[] = [1,3,3,4,5,6];
+    myfunc(aarr[3],aarr+5)
+    return 0;
+    
+}

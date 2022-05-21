@@ -1,0 +1,88 @@
+void delete(int key,Node *temmp){
+	
+	if(root == NULL){
+		cout<<"Tree is Empty";
+		return;
+	}
+
+	if (temp -> left-> value == key){
+	delete_node(temp -> left,temp);
+	return;
+	}
+
+	if ((temp != dummy) && (temp->right->value == key)){
+	
+	delete_node(temp->right,temp);
+	return;
+	}
+	if (temp == dummy){
+	delete_node(temp->right,temp);
+	return
+	}
+
+	if((key > temp->value) && (temp->rightbit == 1)){
+
+	delete_node(key,temp->left);
+	return;	
+
+	}
+	if ((key< temp->value) && (temp ->leftbit == 1)){
+	
+	delete_node(key,temp->left);
+	return;
+	
+	}
+	cout<<"value doesnt exist";
+	return;
+}
+
+void delete_node(temp, parent){
+	
+	if ((temp ->leftbit == 1) && (temp->rightbit == 1)){
+	Node *successor_parent = temp;
+	Node *successor = find_succesor(temp->right,successor_parent);
+	temp->value = succesor->value;
+	delete_node(successor,successor_parent);
+	return;	
+	}
+	if ((temp->leftbit == 1) && (temp->rightbit == 0)){
+		if (temp->vale < parent->value){
+		parent->left = temp_left;
+		parent->leftbit = temp->leftbit;
+		parent->right = temp->left;
+		parent->rightbit = temp->leftbit;
+		}
+	Node *temp2=temp->left;
+	while(temp2->rightbit != 0){
+		temp2=temp2->right;
+		}
+	temp2->right = temp->right;
+	delete temp;
+	return;
+	if ((temp->leftbit == 0) && (temp->rightbit == 0)){
+		if (parent ->left == temp){
+			parent ->left = temp->left;
+			parent->leftbit = 0;
+			}
+		if ((parent->right == temp) && (parent != dummy)){
+			parent ->right = temp->right;
+			parent->rightbit = 0;
+			}
+		if (temp == root){
+			root = NULL;
+			dummy->left = dummy;
+			dummy->leftbit = 0;
+			delete temp;
+			return;
+			}
+		}
+	}
+}
+
+void find_successor(temp,successor_parent){
+	if (temp->leftbit = 1){
+		return temp;
+	}
+	parent = temp;
+	return find_successor(temp->left,parent)
+}
